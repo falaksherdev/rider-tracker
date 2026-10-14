@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { background: #0a0b10; color: #e8eaf2; -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
+* { -webkit-tap-highlight-color: transparent; }
+/* iOS Safari: 16px se kam font par input focus par page zoom ho jata hai */
+input, select, textarea { font-size: 16px !important; }
+input:not([type='date']):not([type='checkbox']) { -webkit-appearance: none; appearance: none; }
+/* iOS date input collapse/blank fix */
+input[type='date'] { min-height: 3rem; display: block; width: 100%; text-align: left; -webkit-min-logical-width: calc(100% - 16px); }
+.h-screen-d { height: 100vh; height: 100dvh; }
+.min-h-screen-d { min-height: 100vh; min-height: 100dvh; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-white/10 bg-white/[0.04] p-4; }
+  .input { @apply w-full rounded-xl border border-white/10 bg-white/[0.06] px-3 py-3 text-white outline-none focus:border-emerald-400/70 placeholder:text-zinc-500; }
+  .btn { @apply rounded-xl px-4 py-3 font-semibold transition active:scale-95; }
+  .btn-neon { @apply btn bg-emerald-400 text-black shadow-[0_0_20px_rgba(52,245,160,0.35)]; }
+  .chip { @apply rounded-full border border-white/10 px-3 py-1.5 text-sm text-zinc-300 transition; }
+  .chip-on { @apply border-emerald-400 bg-emerald-400/15 text-emerald-300; }
+}
